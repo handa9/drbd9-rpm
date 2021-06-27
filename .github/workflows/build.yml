@@ -14,8 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: build
-        env: 
-          VERSION: 9.18.0
         run: |
           docker build -t procube/drbd9-rpm .
           mkdir -p /tmp/RPMS/{x86_64,noarch}
