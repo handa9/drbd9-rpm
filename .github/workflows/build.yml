@@ -13,8 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: build
-        run: |
+      - uses: actions/setup-python@v2
+      - run: |
           docker build -t procube/drbd9-rpm .
           mkdir -p /tmp/RPMS/{x86_64,noarch}
           sudo chown 111:111 -R /tmp/RPMS
