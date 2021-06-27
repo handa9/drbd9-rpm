@@ -43,8 +43,8 @@ cp /tmp/rpms/* rpmbuild/RPMS/x86_64
 __EOF
 ./autogen.sh
 ./configure --prefix=/usr --localstatedir=/var --sysconfdir=/etc
-make .filelist
-make rpm VERSION=9.18.0
+make .filelist VERSION=9.18.0
+make rpm
 #make rpmprep
 #rpmbuild -bb --without 83support --without 84support --without manual drbd.spec
 # rpmbuild -bb --without 83support --without 84support drbd.spec
