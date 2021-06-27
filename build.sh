@@ -44,7 +44,7 @@ __EOF
 ./autogen.sh
 ./configure --prefix=/usr --localstatedir=/var --sysconfdir=/etc
 make .filelist
-make rpm
+make rpm VERSION=9.18.0
 #make rpmprep
 #rpmbuild -bb --without 83support --without 84support --without manual drbd.spec
 # rpmbuild -bb --without 83support --without 84support drbd.spec
