@@ -43,7 +43,7 @@ cp /tmp/rpms/* rpmbuild/RPMS/x86_64
 __EOF
 ./autogen.sh
 ./configure --prefix=/usr --localstatedir=/var --sysconfdir=/etc
-export VERSION=9.17.0
+export VERSION=9.16.0
 make .filelist
 make rpm
 #make rpmprep
