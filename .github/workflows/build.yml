@@ -11,9 +11,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      TRAVIS_BUILD_DIR: ${{ github.workspace }}
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
       - name: build
         run: |
           docker build -t procube/drbd9-rpm .
@@ -29,5 +30,5 @@ jobs:
           docker build -t procube/drbd9-rpm-foros8 -f Dockerfile.foros8 .
           mkdir -p /tmp/RPMS.foros8/{x86_64,noarch}
           sudo chown 111:111 -R /tmp/RPMS.foros8
-          travis_wait docker run --rm --privileged --name drbd9-rpm -v /tmp/RPMS.foros8:/home/builder/rpmbuild/RPMS procube/drbd9-rpm-foros8
+          docker run --rm --privileged --name drbd9-rpm -v /tmp/RPMS.foros8:/home/builder/rpmbuild/RPMS procube/drbd9-rpm-foros8
           (cd /tmp;tar -czf - RPMS.foros8) > $TRAVIS_BUILD_DIR/drbd9-rpm-foros8.tar.gz
